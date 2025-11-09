@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛵 Entrega & Frete | A Doce Maninha</title>
+    <link rel="icon" href="https://via.placeholder.com/32/A0522D/FFFFFF?text=BP" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS BÁSICO DO INDEX (Para Tema Consistente) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        :root {
+            --cor-principal: #A0522D;
+            --cor-fundo: #FFF5E0;
+            --cor-secundaria: #694F3C;
+            --cor-texto-claro: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-secundaria);
+            padding-bottom: 80px;
+        }
+
+        /* HEADER */
+        .header {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+            padding: 20px 0 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        .header p {
+            font-size: 1em;
+            font-weight: 400;
+        }
+        
+        /* Menu de Navegação */
+        nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: var(--cor-fundo); 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--cor-secundaria);
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        /* Destaque para a página atual no menu */
+        nav a[href="entrega.html"] {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+        }
+        nav a:not([href="entrega.html"]):hover {
+            background-color: #f0d8c0; /* Tom mais claro de marrom */
+            color: var(--cor-secundaria);
+        }
+        
+        /* ESTILO DO CONTEÚDO DA PÁGINA */
+        .delivery-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            line-height: 1.7;
+        }
+        .delivery-container h2 {
+            text-align: center;
+            color: var(--cor-principal);
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .delivery-container h3 {
+            color: var(--cor-secundaria);
+            margin-top: 25px;
+            border-left: 4px solid var(--cor-principal);
+            padding-left: 10px;
+            font-size: 1.4em;
+        }
+        .delivery-container p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .destaque {
+            font-weight: 700;
+            color: var(--cor-principal);
+        }
+
+        /* Tabela de Preços (Fictícia) */
+        .tabela-frete {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .tabela-frete th, .tabela-frete td {
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            text-align: left;
+            font-size: 1em;
+        }
+        .tabela-frete th {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+        }
+        .tabela-frete tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* WHATSAPP FLUTUANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #25D366; 
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .whatsapp-float:hover { background-color: #128C7E; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>🛵 Entrega e Frete</h1>
+        <p>A Doce Maninha leva o seu pedido até você com todo cuidado!</p>
+    </header>
+
+    <nav>
+        <a href="index.html">🍰 Cardápio</a>
+        <a href="sobre.html">🧡 Sobre Nós</a>
+        <a href="entrega.html">🛵 Entrega & Frete</a>
+    </nav>
+
+    <section class="delivery-container">
+        <h2>Como Funciona a Entrega de Bolos no Pote?</h2>
+
+        <h3>🛵 Nossas Zonas de Atendimento</h3>
+        <p>Atualmente, atendemos as principais regiões de [Sua Cidade/Bairro]. Se o seu bairro não estiver listado, <span class="destaque">entre em contato pelo WhatsApp</span> para verificarmos a possibilidade de atendimento exclusivo!</p>
+        
+        <p>A entrega é feita por nossa equipe de motoboys parceiros, garantindo que seu pedido chegue **fresquinho e no prazo.**</p>
+
+        <h3>🕒 Prazo e Taxas de Frete (Exemplo Fictício)</h3>
+        <p>O frete é calculado com base na sua localização, garantindo um preço justo. Abaixo, uma estimativa de prazos e valores. <span class="destaque">O valor exato será confirmado antes da finalização do seu pedido no WhatsApp.</span></p>
+
+        <table class="tabela-frete">
+            <thead>
+                <tr>
+                    <th>Região / Bairro (Exemplo)</th>
+                    <th>Valor Estimado</th>
+                    <th>Prazo Estimado (Após Confirmação)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Região Central e Bairros Próximos</td>
+                    <td>R$ 8,00 a R$ 12,00</td>
+                    <td>40 a 60 minutos</td>
+                </tr>
+                <tr>
+                    <td>Bairros Afastados (Ex: Zona Leste)</td>
+                    <td>R$ 15,00 a R$ 20,00</td>
+                    <td>60 a 90 minutos</td>
+                </tr>
+                <tr>
+                    <td>Retirada no Local (Endereço Fictício)</td>
+                    <td><span class="destaque">GRÁTIS!</span></td>
+                    <td>A combinar (Durante horário de funcionamento)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>❄️ Compromisso com a Qualidade</h3>
+        <p>Nossos Bolos no Pote são perecíveis! Garantimos:</p>
+        <ul>
+            <li>**Embalagem Segura:** Usamos embalagens firmes e resistentes para proteger cada camada do seu bolo durante o transporte.</li>
+            <li>**Controle de Temperatura:** Os pedidos são transportados em caixas térmicas (Isopor ou Manta) para manter a cremosidade e o frescor ideais até a sua porta.</li>
+        </ul>
+
+        <h3>⚠️ Dica Importante para o Pedido</h3>
+        <p>Para evitar atrasos e reenvios, por favor, ao finalizar o pedido pelo WhatsApp, certifique-se de que o <span class="destaque">endereço e o número de contato estão completos e corretos</span>. Assim, garantimos que a Maninha chegue sem problemas!</p>
+
+    </section>
+
+    <a href="https://api.whatsapp.com/send?phone=5547989141263&text=Olá!%20Tenho%20uma%20dúvida%20sobre%20a%20área%20de%20entrega." class="whatsapp-float" target="_blank">
+        ❓ Dúvidas sobre o Frete?
+    </a>
+
+</body>
+</html>
+p

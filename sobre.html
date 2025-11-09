@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧡 Sobre Nós | A Doce Maninha</title>
+    <link rel="icon" href="https://via.placeholder.com/32/A0522D/FFFFFF?text=BP" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS BÁSICO DO INDEX (Para Tema Consistente) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        :root {
+            --cor-principal: #A0522D;
+            --cor-fundo: #FFF5E0;
+            --cor-secundaria: #694F3C;
+            --cor-texto-claro: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-secundaria);
+            padding-bottom: 80px;
+        }
+
+        /* HEADER */
+        .header {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+            padding: 20px 0 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        .header p {
+            font-size: 1em;
+            font-weight: 400;
+        }
+        
+        /* Menu de Navegação */
+        nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: var(--cor-fundo); 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--cor-secundaria);
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        /* Destaque para a página atual no menu */
+        nav a[href="sobre.html"] {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+        }
+        nav a:not([href="sobre.html"]):hover {
+            background-color: #f0d8c0; /* Tom mais claro de marrom */
+            color: var(--cor-secundaria);
+        }
+        
+        /* ESTILO DO CONTEÚDO DA PÁGINA */
+        .about-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            line-height: 1.7;
+        }
+        .about-container h2 {
+            text-align: center;
+            color: var(--cor-principal);
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .about-container h3 {
+            color: var(--cor-secundaria);
+            margin-top: 25px;
+            border-left: 4px solid var(--cor-principal);
+            padding-left: 10px;
+            font-size: 1.4em;
+        }
+        .about-container p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        /* Destaques no texto */
+        .destaque {
+            font-weight: 700;
+            color: var(--cor-principal);
+        }
+        
+        /* Lista de diferenciais */
+        .about-container ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+        .about-container ul li {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%23A0522D"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>') no-repeat left center;
+            background-size: 16px;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        /* WHATSAPP FLUTUANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #25D366; 
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .whatsapp-float:hover { background-color: #128C7E; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>A Doce Maninha 🧁</h1>
+        <p>A História de Amanda, Feita com Amor e Calor de Casa</p>
+    </header>
+
+    <nav>
+        <a href="index.html">🍰 Cardápio</a>
+        <a href="sobre.html">🧡 Sobre Nós</a>
+    </nav>
+
+    <section class="about-container">
+        <h2>🧡 Nossa História: Amor, Sonho e o Calor de Manaus</h2>
+
+        <p>Olá! Eu sou a **Amanda** 👋, e é com um sorriso no rosto e o <span class="destaque">calor de Manaus</span> que te recebo. Essa sou eu, com 23 anos, casada, mãe e dona de um sonho ardente: **empreender, sem nunca abrir mão de estar perto da minha família.**</p>
+
+        <p>A história da **A Doce Maninha** não é sobre receitas regionais, mas sim sobre <span class="destaque">paixão e acolhimento</span>. Minha origem manauara me ensinou o valor da força e do carinho, e é exatamente esse sentimento que eu coloco em cada pote. <span class="destaque">Cada bolo é um abraço, não importa a distância.</span></p>
+
+        <h3>👩‍🍳 Bolos Artesanais com Sabor de Dedicação</h3>
+        <p>Aqui, a qualidade é a nossa obsessão. Você encontra bolos artesanais feitos com o cuidado de mãe que faz para os filhos:</p>
+        
+        <ul>
+            <li>**Sabor Inconfundível:** Usamos apenas **chocolate nobre** e o Leite Ninho original para garantir a excelência dos nossos *Top Vendas*.</li>
+            <li>**Massa Perfeita:** Feita do zero, nossa massa é tão <span class="destaque">fofinha que desmancha na boca</span>, preparada com um toque especial.</li>
+            <li>**O Segredo:** O afeto e a calma dedicados no preparo. Essa é a essência da <span class="destaque">Maninha</span>.</li>
+        </ul>
+
+        <h3>✨ Visão de Futuro: Crescendo com o Coração</h3>
+        <p>Você está apoiando o sonho de uma mãe empreendedora! O cardápio atual (Brigadeiro, Ninho, Maracujá e Red Velvet) é a base do nosso negócio.</p>
+        <p>Em breve, <span class="destaque">estaremos expandindo nosso cardápio e nossa capacidade</span>, sempre mantendo a qualidade artesanal. Queremos que a **A Doce Maninha** seja sinônimo de felicidade e qualidade na sua cidade.</p>
+        
+        <p style="text-align: center; margin-top: 30px; font-weight: bold; font-size: 1.2em; color: var(--cor-principal);">
+            Obrigada por fazer parte desta jornada.<br>Com Carinho e um abraço acolhedor,<br>Amanda, a Doce Maninha.
+        </p>
+
+    </section>
+
+    <a href="https://api.whatsapp.com/send?phone=5547989141263&text=Olá!%20Li%20a%20sua%20história%20e%20quero%20fazer%20um%20pedido." class="whatsapp-float" target="_blank">
+        💬 Quero Fazer um Pedido!
+    </a>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📦 Resumo do Pedido | Bolo da Amanda</title>
+    <link rel="icon" href="https://via.placeholder.com/32/A0522D/FFFFFF?text=BP" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS COMPLETO DO TEMA (DO INDEX.HTML) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        :root {
+            --cor-principal: #A0522D;
+            --cor-fundo: #FFF5E0;
+            --cor-secundaria: #694F3C;
+            --cor-texto-claro: #FFFFFF;
+            --cor-aberto: #28a745;
+            --cor-fechado: #dc3545;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-secundaria);
+            padding-bottom: 80px;
+        }
+
+        .header {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+            padding: 20px 0 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 { font-size: 1.8em; margin-bottom: 5px; }
+        .header p { font-size: 1em; font-weight: 400; }
+
+        /* Menu de Navegação */
+        nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: var(--cor-fundo);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--cor-secundaria);
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        nav a:hover {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+        }
+
+        /* Estilos específicos para a página de resumo */
+        .resumo-container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            color: var(--cor-secundaria);
+        }
+        .resumo-container h2 {
+            text-align: center;
+            color: var(--cor-principal);
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--cor-principal);
+            display: inline-block;
+            padding-bottom: 5px;
+            width: 100%;
+        }
+        .resumo-item {
+            border-bottom: 1px dashed #ccc;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1em;
+        }
+        .resumo-item:last-child {
+            border-bottom: none;
+        }
+        .resumo-total {
+            font-size: 1.6em;
+            font-weight: 700;
+            margin-top: 25px;
+            color: var(--cor-secundaria);
+            padding-top: 15px;
+            border-top: 2px solid var(--cor-principal);
+        }
+        .whatsapp-button {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: background-color 0.2s;
+        }
+        .whatsapp-button:hover { background-color: #128C7E; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Seu Pedido 📦</h1>
+        <p>Confira os detalhes antes de finalizar.</p>
+    </header>
+
+    <nav style="text-align: center; padding: 10px 0; background-color: var(--cor-fundo); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        <a href="index.html" style="margin: 0 15px; text-decoration: none; color: var(--cor-secundaria); font-weight: bold; padding: 5px 10px; border-radius: 5px; background-color: #F8E5D3;">🍰 Cardápio</a>
+    </nav>
+
+    <section class="resumo-container">
+        <h2>Detalhes do Pedido</h2>
+        <div id="resumo-detalhes">
+            </div>
+
+        <div style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #ddd;">
+            <h3 style="color: var(--cor-secundaria); margin-bottom: 10px; font-size: 1.3em;">🍫 Detalhes dos Sabores e Observações:</h3>
+            <textarea id="obs-sabores" placeholder="Ex: Brigadeiro P (1x), Ninho M (1x). Por favor, embalar para presente. (Obrigatório para promoções trio)" rows="4" style="width: 100%; padding: 10px; border: 2px solid var(--cor-principal); border-radius: 8px; resize: vertical; font-family: 'Quicksand', sans-serif; font-size: 1em;"></textarea>
+        </div>
+        <div class="resumo-item resumo-total">
+            <span>TOTAL:</span>
+            <span id="valor-total">R$ 0,00</span>
+        </div>
+        
+        <a id="btn-whatsapp-final" href="#" class="whatsapp-button">
+            ✅ ENVIAR PEDIDO COMPLETO VIA WHATSAPP
+        </a>
+
+        <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #777;">Clique no botão acima para nos enviar a mensagem com seu pedido.</p>
+    </section>
+
+    
+    <script>
+        // Lógica de processamento do resumo (ATUALIZADA)
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartJson = localStorage.getItem('cart');
+            const detalhesContainer = document.getElementById('resumo-detalhes');
+            const totalElement = document.getElementById('valor-total');
+            const whatsappButton = document.getElementById('btn-whatsapp-final');
+            const obsSabores = document.getElementById('obs-sabores'); // NOVO
+
+            if (!cartJson || JSON.parse(cartJson).length === 0) {
+                detalhesContainer.innerHTML = "<p style='text-align: center; color: var(--cor-fechado);'>Seu carrinho está vazio. Volte ao <a href='index.html' style='color: var(--cor-principal); text-decoration: none; font-weight: bold;'>Cardápio</a> para fazer seu pedido.</p>";
+                totalElement.textContent = 'R$ 0,00';
+                whatsappButton.style.display = 'none';
+                
+                localStorage.removeItem('cart');
+                return;
+            }
+
+            const cart = JSON.parse(cartJson);
+            let total = 0;
+            let detalhesHTML = '';
+            let pedidoListado = '';
+            
+            // 1. Itera sobre o carrinho para listar os itens e calcular o total
+            cart.forEach((item) => {
+                const itemPrice = item.price * item.quantity;
+                total += itemPrice;
+
+                detalhesHTML += `
+                    <div class="resumo-item">
+                        <span style="font-weight: bold;">${item.quantity}x ${item.flavor}</span>
+                        <span>${item.size}</span>
+                        <span style="color: var(--cor-principal);">R$ ${itemPrice.toFixed(2).replace('.', ',')}</span>
+                    </div>
+                `;
+                
+                // Adiciona cada item à lista que vai para a área de texto (pré-preenchimento)
+                pedidoListado += `${item.quantity}x ${item.flavor} (${item.size})\n`;
+            });
+            
+            // 2. Pré-preenche a área de texto com o que foi pedido
+            obsSabores.value = `ITENS SELECIONADOS:\n${pedidoListado}-------------------------\nSABORES (EX: 1x Brigadeiro P, 2x Ninho M):\n\nOUTRAS OBSERVAÇÕES:`;
+
+            // 3. Monta o resumo final
+            detalhesContainer.innerHTML = detalhesHTML;
+            totalElement.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+
+            // 4. Lógica FINAL para montar a mensagem do WhatsApp (NOVA)
+            
+            function createWhatsappLink() {
+                const obs = obsSabores.value.trim();
+                const obsFinal = obs.replace(/\n/g, '%0A'); // Substitui quebras de linha por %0A
+                
+                let whatsappMessage = `Olá! Tenho um pedido da A Doce Maninha.\n\n`;
+                whatsappMessage += `${obsFinal}\n\n`; // Inclui todo o texto que o cliente digitou
+                whatsappMessage += `TOTAL FINAL DA COMPRA: R$ ${total.toFixed(2).replace('.', ',')}.\n`;
+                whatsappMessage += `Por favor, me informe o valor e prazo de entrega.`;
+                
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                return `https://api.whatsapp.com/send?phone=5547989141263&text=${encodedMessage}`;
+            }
+
+            // 5. Atualiza o link do botão dinamicamente
+            whatsappButton.href = createWhatsappLink();
+
+            // 6. Atualiza o link sempre que o cliente digitar (para ter certeza que o texto final vai)
+            obsSabores.addEventListener('input', () => {
+                whatsappButton.href = createWhatsappLink();
+            });
+
+            // 7. Limpa o carrinho APÓS o envio
+            whatsappButton.addEventListener('click', () => {
+                setTimeout(() => {
+                    localStorage.removeItem('cart');
+                }, 500); 
+            });
+        });
+    </script>
+</body>
+</html>
