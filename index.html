@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio da Doceira Amanda 💖</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Cores da Paleta "Doceira Fofa":
+           Fundo: #FAEBEB (Rosa Pêssego Claro)
+           Marrom Suave: #7B3F00 (Chocolate Suave)
+           Rosa Acento: #F7A3A5 (Morango/Chantilly)
+           Vermelho Preço: #D63230 (Framboesa)
+        */
+
+        /* Estilos Globais e Reset Básico */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FAEBEB; /* Fundo Rosa Pêssego Claro (Fofo) */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333333;
+            overflow-x: hidden; /* Evita barra de rolagem horizontal */
+        }
+
+        /* Estilo do Cabeçalho (Topo do Cardápio) */
+        header {
+            background-color: #7B3F00; /* Marrom Chocolate Suave */
+            color: #FFFFFF;
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative; 
+            z-index: 10; 
+        }
+
+        /* EFEITO DE CALDA DE CHOCOLATE CAINDO (Mantido, mas com cor mais suave) */
+        header::after { 
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-color: #7B3F00; /* Cor da Calda */
+            border-radius: 0 0 50% 50% / 0 0 100% 100%; 
+            transform: translateY(-50%); 
+            z-index: 5; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em; 
+            font-family: 'Pacifico', cursive; /* Fonte Super Fofa */
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 1.4em;
+            opacity: 0.9;
+        }
+
+        /* Área Principal do Cardápio */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto 40px auto; 
+            background-color: #FFFFFF;
+            border-radius: 20px; /* Cantos mais arredondados para fofura */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Sombra mais destacada */
+            position: relative;
+            z-index: 1; 
+        }
+
+        /* Estilo das Seções/Categorias */
+        section {
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #FFD1DC; /* Linha divisória de Morango */
+        }
+
+        section h2 {
+            color: #7B3F00; /* Marrom Suave */
+            font-size: 2.5em; 
+            border-bottom: 5px solid #F7A3A5; /* Linha de destaque Rosa Acento */
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+        }
+
+        /* Estilo de Cada Item do Cardápio */
+        .item-cardapio {
+            padding: 18px 0;
+            border-bottom: 1px dashed #FFD1DC;
+        }
+        
+        /* ... (CSS dos itens, tamanhos e preços mantidos para funcionalidade) ... */
+
+        .preco {
+            font-weight: bold;
+            color: #D63230; /* Vermelho Framboesa para o preço */
+            font-size: 1.5em;
+        }
+
+        .tamanho-linha {
+            color: #5A2D0C; /* Marrom para o texto do tamanho */
+        }
+
+        /* Estilo do Rodapé */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #7B3F00; /* Marrom Suave no rodapé */
+            color: #FFFFFF;
+            font-size: 1em;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo do Carrinho */
+        #carrinho-info {
+             background-color: #FFFFFF;
+             /* ... (Mantido) ... */
+        }
+        
+        #btn-finalizar {
+            background-color: #D63230; /* Botão Framboesa */
+            /* ... (Mantido) ... */
+        }
+
+        /* ======================================= */
+        /* EFEITO FLUTUANTE (DOCINHOS) */
+        /* ======================================= */
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0.8; }
+            50% { transform: translate(15px, 15px) rotate(5deg); opacity: 1; }
+            100% { transform: translate(0, 0) rotate(0deg); opacity: 0.8; }
+        }
+        
+        /* Classe para os docinhos flutuantes */
+        .doce-flutuante {
+            position: absolute;
+            width: 50px; /* Tamanho do ícone/imagem */
+            height: 50px;
+            animation: float 6s ease-in-out infinite; /* Aplica a animação */
+            opacity: 0.8;
+            pointer-events: none; /* Garante que o usuário possa clicar no cardápio atrás */
+            z-index: 100; /* Acima de tudo */
+        }
+
+        /* Posições e atrasos diferentes para cada docinho */
+        #doce-1 { top: 10%; left: 5%; animation-delay: 0s; } /* Brigadeiro */
+        #doce-2 { top: 40%; right: 3%; animation-delay: 2s; transform: scale(0.8); } /* Morango */
+        #doce-3 { bottom: 15%; left: 10%; animation-delay: 4s; } /* Cereja */
+    </style>
+    </head>
+<body>
+
+    <div id="doce-1" class="doce-flutuante">🍫</div> 
+    <div id="doce-2" class="doce-flutuante">🍓</div>
+    <div id="doce-3" class="doce-flutuante">🍒</div> 
+
+    <header>
+        <h1>DOCERIA DA AMANDA 💖</h1>
+        <p>Adoçando a sua vida!</p>
+    </header>
+
+    <main>
+        <section id="classicos">
+            <h2>🎉 Os Queridinhos (Os Clássicos)</h2>
+            
+            <div class="item-cardapio">
+                <div class="item-details">
+                    <div class="item-title-price"><h3>Brigadeiro Gourmet</h3></div>
+                    <p>Massa de chocolate super fofinha, recheio cremoso de brigadeiro belga e granulado no topo.</p>
+                    <div class="tamanhos-preco">
+                        <div class="tamanho-linha"><span class="label">P (100ml)</span><span class="preco">R$ 8,00</span><input type="number" min="0" value="0" class="quantidade" data-nome="Brigadeiro Gourmet (P)" data-preco="8.00"></div>
+                        <div class="tamanho-linha"><span class="label">M (150ml)</span><span class="preco">R$ 10,00</span><input type="number" min="0" value="0" class="quantidade" data-nome="Brigadeiro Gourmet (M)" data-preco="10.00"></div>
+                        <div class="tamanho-linha"><span class="label">G (200ml)</span><span class="preco">R$ 12,00</span><input type="number" min="0" value="0" class="quantidade" data-nome="Brigadeiro Gourmet (G)" data-preco="12.00"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-cardapio">
+                <div class="item-details">
+                    <div class="item-title-price"><h3>Ninho com Morango</h3></div>
+                    <p>Massa branca, creme aveludado de Leite Ninho e pedaços de morangos frescos selecionados.</p>
+                    <div class="tamanhos-preco">
+                        <div class="tamanho-linha"><span class="label">P (100ml)</span><span class="preco">R$ 9,00</span><input type="number" min="0" value="0" class="quantidade" data-nome="Ninho c/ Morango (P)" data-preco="9.00"></div>
+                        <div class="tamanho-linha"><span class="label">M (150ml)</span><span class="preco">R$ 12,00</span><input type="number" min="0" value="0" class="quantidade" data-nome="Ninho c/ Morango (M)" data-preco="12.00"></div>
+                        <div class="tamanho-linha"><span class="label">G (200ml)</span><span class="preco">R$ 14,00</span><input type="number" min="0" value="0" class="quantidade" data-nome="Ninho c/ Morango (G)" data-preco="14.00"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-cardapio">
+                <div class="item-details">
+                    <div class="item-title-price"><h3>Prestígio Tentação</h3></div>
+                    <p>Combinação perfeita de massa de chocolate, creme de coco fresco e cobertura de ganache.</p>
+                    <div class="tamanhos-preco">
+                        <div class="tamanho-linha"><span class="label">P (100ml)</span><span class="preco">R$ 8,50</span><input type="number" min="0" value="0" class="quantidade" data-nome="Prestígio (P)" data-preco="8.50"></div>
+                        <div class="tamanho-linha"><span class="label">M (150ml)</span><span class="preco">R$ 11,00</span><input type="number" min="0" value="0" class="quantidade" data-nome="Prestígio (M)" data-preco="11.00"></div>
+                        <div class="tamanho-linha"><span class="label">G (200ml)</span><span class="preco">R$ 13,00</span><input type="number" min="0" value="0" class="quantidade" data-nome="Prestígio (G)" data-preco="13.00"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="especiais">
+            <h2>✨ Especiais Deliciosos</h2>
+            
+            <div class="item-cardapio">
+                <div class="item-details">
+                    <div class="item-title-price">
+                        <h3>Red Velvet Luxo</h3>
+                        <span class="preco">R$ 15,00</span>
+                        <input type="number" min="0" value="0" class="quantidade" data-nome="Red Velvet Luxo" data-preco="15.00">
+                    </div>
+                    <p>Massa vermelha aveludada, camadas generosas de cream cheese suave e toque de baunilha.</p>
+                </div>
+            </div>
+            
+            <div class="item-cardapio">
+                <div class="item-details">
+                    <div class="item-title-price">
+                        <h3>Banoffee Divino</h3>
+                        <span class="preco">R$ 14,00</span>
+                        <input type="number" min="0" value="0" class="quantidade" data-nome="Banoffee Divino" data-preco="14.00">
+                    </div>
+                    <p>Base crocante de biscoito, doce de leite artesanal, rodelas de banana fresca e chantilly.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="frutados">
+            <h2>🍋 Frutas e Refrescos</h2>
+            
+            <div class="item-cardapio">
+                <div class="item-details">
+                    <div class="item-title-price">
+                        <h3>Mousse de Maracujá</h3>
+                        <span class="preco">R$ 11,00</span>
+                        <input type="number" min="0" value="0" class="quantidade" data-nome="Mousse de Maracujá" data-preco="11.00">
+                    </div>
+                    <p>Massa leve, mousse aerado de maracujá e geleia natural de maracujá com sementes.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Horário de Funcionamento: Terça a Sábado, das 10h às 19h.</p>
+        <p>© 2025 Amanda Dev | Seu Primeiro Site Desenvolvido por Você!</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const camposQuantidade = document.querySelectorAll('.quantidade');
+            const footer = document.querySelector('footer');
+
+            // 1. CRIA A CAIXA DE TOTAL/BOTÃO DE FINALIZAR DINAMICAMENTE
+            const divTotal = document.createElement('div');
+            divTotal.id = 'carrinho-info';
+            divTotal.innerHTML = `
+                <div style="max-width: 800px; margin: 0 auto; padding-top: 5px;">
+                    <p id="total-carrinho" style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px; color: #4A2C1F;">
+                        Total do Pedido: R$ 0,00
+                    </p>
+                    <button id="btn-finalizar">
+                        VER TOTAL E ENVIAR PEDIDO
+                    </button>
+                </div>
+            `;
+            // Insere a caixa de total antes do rodapé
+            footer.parentNode.insertBefore(divTotal, footer);
+
+            // 2. FUNÇÃO PRINCIPAL: CALCULAR O CARRINHO
+            const calcularCarrinho = () => {
+                let total = 0;
+                let itensPedido = [];
+
+                camposQuantidade.forEach(input => {
+                    const quantidade = parseInt(input.value) || 0;
+                    const preco = parseFloat(input.dataset.preco);
+                    const nome = input.dataset.nome;
+
+                    if (quantidade > 0) {
+                        total += quantidade * preco;
+                        itensPedido.push(`* ${quantidade}x ${nome} (R$ ${preco.toFixed(2).replace('.', ',')})`);
+                    }
+                });
+
+                document.getElementById('total-carrinho').textContent = `Total do Pedido: R$ ${total.toFixed(2).replace('.', ',')}`;
+
+                // 4. PREPARA O LINK DO WHATSAPP (com o seu número)
+                const meuNumero = '5547989141263';
+                const btnFinalizar = document.getElementById('btn-finalizar');
+                
+                let mensagem = `Olá, Amanda! Meu pedido é o seguinte:%0A%0A`; 
+
+                if (itensPedido.length > 0) {
+                    mensagem += itensPedido.join('%0A') + `%0A%0A`;
+                    mensagem += `*TOTAL ESTIMADO:* R$ ${total.toFixed(2).replace('.', ',')}`;
+                    mensagem += `%0A%0AConfirmo os sabores, tamanhos e quantidades acima.`;
+                } else {
+                    mensagem = `Olá! Estou visitando seu cardápio, mas ainda não selecionei nenhum item.`;
+                }
+
+                const linkFinal = `https://wa.me/${meuNumero}?text=${encodeURIComponent(mensagem)}`;
+
+                if (btnFinalizar.onclick) btnFinalizar.onclick = null; 
+
+                btnFinalizar.onclick = () => {
+                    window.open(linkFinal, '_blank');
+                };
+
+                btnFinalizar.textContent = itensPedido.length > 0 
+                    ? `ENVIAR PEDIDO (${itensPedido.length} itens)` 
+                    : `SELECIONE OS BOLOS PARA PEDIR`;
+            };
+
+            camposQuantidade.forEach(input => {
+                input.addEventListener('change', calcularCarrinho);
+                input.addEventListener('keyup', calcularCarrinho);
+            });
+
+            calcularCarrinho();
+        });
+    </script>
+    </body>
+</html>
