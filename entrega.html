@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🛵 Entrega & Frete | A Doce Maninha</title>
     <link rel="icon" href="https://via.placeholder.com/32/A0522D/FFFFFF?text=BP" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700;500&display=swap" rel="stylesheet">
     
     <style>
         /* CSS BÁSICO DO INDEX (Para Tema Consistente) */
@@ -21,6 +21,7 @@
             --cor-fundo: #FFF5E0;
             --cor-secundaria: #694F3C;
             --cor-texto-claro: #FFFFFF;
+            --cor-nav-clara: #F8E5D3;
         }
 
         body {
@@ -37,40 +38,36 @@
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .header h1 {
-            font-size: 1.8em;
-            margin-bottom: 5px;
-        }
-        .header p {
-            font-size: 1em;
-            font-weight: 400;
-        }
+        .header h1 { font-size: 1.8em; margin-bottom: 5px; }
+        .header p { font-size: 1em; font-weight: 400; }
         
-        /* Menu de Navegação */
-        nav {
+        /* NOVO: ESTILO DO MENU DE FILTRO/NAVEGAÇÃO */
+        .filter-menu {
+            padding: 20px 10px;
             text-align: center;
-            padding: 10px 0;
-            background-color: var(--cor-fundo); 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(0,0,0,0.05); 
+            background-color: var(--cor-fundo);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
         }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
+        .filter-btn {
+            background-color: var(--cor-nav-clara); 
             color: var(--cor-secundaria);
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 5px;
+            border: 1px solid var(--cor-principal);
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
             transition: background-color 0.2s, color 0.2s;
+            font-size: 1em;
+            display: inline-block;
+            text-decoration: none;
         }
-        /* Destaque para a página atual no menu */
-        nav a[href="entrega.html"] {
+        .filter-btn.active {
             background-color: var(--cor-principal);
             color: var(--cor-texto-claro);
-        }
-        nav a:not([href="entrega.html"]):hover {
-            background-color: #f0d8c0; /* Tom mais claro de marrom */
-            color: var(--cor-secundaria);
+            border-color: var(--cor-principal);
+            font-weight: 700;
         }
         
         /* ESTILO DO CONTEÚDO DA PÁGINA */
@@ -101,12 +98,9 @@
             font-size: 1.1em;
         }
         
-        .destaque {
-            font-weight: 700;
-            color: var(--cor-principal);
-        }
+        .destaque { font-weight: 700; color: var(--cor-principal); }
 
-        /* Tabela de Preços (Fictícia) */
+        /* Tabela de Preços */
         .tabela-frete {
             width: 100%;
             border-collapse: collapse;
@@ -153,11 +147,11 @@
         <p>A Doce Maninha leva o seu pedido até você com todo cuidado!</p>
     </header>
 
-    <nav>
-        <a href="index.html">🍰 Cardápio</a>
-        <a href="sobre.html">🧡 Sobre Nós</a>
-        <a href="entrega.html">🛵 Entrega & Frete</a>
-    </nav>
+    <div class="filter-menu">
+        <a href="index.html" class="filter-btn">🍰 Cardápio</a>
+        <a href="sobre.html" class="filter-btn">🧡 Sobre Nós</a>
+        <a href="entrega.html" class="filter-btn active">🛵 Entrega & Frete</a>
+    </div>
 
     <section class="delivery-container">
         <h2>Como Funciona a Entrega de Bolos no Pote?</h2>
@@ -215,4 +209,3 @@
 
 </body>
 </html>
-p

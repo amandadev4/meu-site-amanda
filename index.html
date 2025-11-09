@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍰 Bolo no Pote da Amanda</title>
     <link rel="icon" href="https://via.placeholder.com/32/A0522D/FFFFFF?text=BP" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700;500&display=swap" rel="stylesheet">
     
     <style>
         /* RESET BÁSICO E CONFIGURAÇÃO DA FONTE */
@@ -18,19 +18,19 @@
 
         /* PALETA DE CORES: Marrom (A0522D), Creme (FFF5E0) e Chocolate (694F3C) */
         :root {
-            --cor-principal: #A0522D; /* Marrom-Claro (Destaque/Botões) */
-            --cor-fundo: #FFF5E0; /* Creme (Fundo Fofo) */
-            --cor-secundaria: #694F3C; /* Chocolate (Textos/Headers) */
+            --cor-principal: #A0522D; 
+            --cor-fundo: #FFF5E0; 
+            --cor-secundaria: #694F3C; 
             --cor-texto-claro: #FFFFFF;
-            --cor-aberto: #28a745; /* Verde para ABERTO */
-            --cor-fechado: #dc3545; /* Vermelho para FECHADO */
-            --cor-nav-clara: #F8E5D3; /* Fundo Creme Suave para Botões */
+            --cor-aberto: #28a745; 
+            --cor-fechado: #dc3545; 
+            --cor-nav-clara: #F8E5D3;
         }
 
         body {
             background-color: var(--cor-fundo);
             color: var(--cor-secundaria);
-            padding-bottom: 150px; /* Espaço para 2 botões flutuantes */
+            padding-bottom: 150px; 
         }
 
         /* HEADER */
@@ -46,79 +46,116 @@
 
         /* STATUS DE FUNCIONAMENTO */
         .status-badge {
-            display: block;
-            width: 100%;
-            padding: 8px;
-            font-size: 1.1em;
-            font-weight: 700;
-            color: var(--cor-texto-claro);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            padding: 5px 15px;
             margin-top: 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: var(--cor-texto-claro);
         }
         .status-aberto { background-color: var(--cor-aberto); }
         .status-fechado { background-color: var(--cor-fechado); }
         
-        /* ESTILO DO MENU DE BOTÕES EM DUAS LINHAS */
-        .nav-container {
-            padding: 10px 0;
-            background-color: var(--cor-fundo); 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(0,0,0,0.05); 
+        /* MENU DE FILTRO/NAVEGAÇÃO */
+        .filter-menu {
+            padding: 20px 10px;
+            text-align: center;
+            background-color: var(--cor-fundo);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
         }
-        .nav-line {
-            display: flex; /* Habilita o Flexbox */
-            justify-content: center; /* Centraliza os botões */
-            padding: 5px 0;
-        }
-        .nav-button {
-            margin: 0 5px; 
-            text-decoration: none;
-            color: var(--cor-secundaria);
-            font-weight: bold;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background-color 0.2s, color 0.2s;
+        .filter-btn {
             background-color: var(--cor-nav-clara); 
+            color: var(--cor-secundaria);
+            border: 1px solid var(--cor-principal);
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s, color 0.2s;
+            font-size: 1em;
             display: inline-block;
-            font-size: 0.9em;
+            text-decoration: none;
         }
-        .nav-button:hover {
+        .filter-btn.active {
             background-color: var(--cor-principal);
             color: var(--cor-texto-claro);
+            border-color: var(--cor-principal);
+            font-weight: 700;
         }
-        .nav-main {
-            background-color: var(--cor-principal) !important;
-            color: var(--cor-texto-claro) !important;
+
+        /* TÍTULOS DE CATEGORIA */
+        .category-title {
+            text-align: center;
+            font-size: 1.6em;
+            color: var(--cor-principal);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
         }
 
         /* CARDÁPIO SECTION */
         .menu-section {
-            padding: 20px 15px;
-        }
-        .menu-section h2 {
-            text-align: center; color: var(--cor-principal); margin-bottom: 25px; border-bottom: 3px solid var(--cor-principal); display: inline-block; padding-bottom: 5px; width: 100%;
+            padding: 0 15px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         /* ESTILO DO CARD (ITEM DO MENU) */
         .menu-item {
-            background-color: var(--cor-texto-claro); border-radius: 15px; margin-bottom: 25px; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); cursor: pointer; transition: transform 0.2s;
+            background-color: var(--cor-texto-claro); 
+            border-radius: 15px; 
+            margin-bottom: 25px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+            transition: transform 0.2s;
         }
         .menu-item:hover { transform: translateY(-5px); }
-        .item-image-container { height: 250px; background-size: cover; background-position: center; position: relative; background-color: #f0f0f0; }
+
+        /* ÁREA DA IMAGEM: */
+        .item-image-container {
+            height: 250px; 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
         .item-info { padding: 15px; }
         .item-info h3 { font-size: 1.4em; color: var(--cor-secundaria); margin-bottom: 5px; }
         .item-info p { font-size: 0.9em; color: #555; margin-bottom: 15px; min-height: 40px; }
-        .size-options { display: flex; justify-content: space-between; gap: 10px; }
-        .size-btn { flex: 1; padding: 10px 5px; background-color: var(--cor-fundo); color: var(--cor-principal); border: 2px solid var(--cor-principal); border-radius: 8px; text-align: center; font-weight: 700; font-size: 0.9em; transition: background-color 0.2s, color 0.2s; }
-        .size-btn:active, .size-btn:hover { background-color: var(--cor-principal); color: var(--cor-texto-claro); }
+        
+        /* BOTÕES DE TAMANHO/PREÇO (NOVA ESTRUTURA: UM ABAIXO DO OUTRO) */
+        .size-options {
+            display: flex;
+            flex-direction: column; /* Coloca os itens em coluna */
+            gap: 10px;
+        }
+        .size-btn {
+            width: 100%; /* Ocupa a largura total */
+            padding: 10px 5px;
+            background-color: var(--cor-nav-clara);
+            color: var(--cor-secundaria);
+            border: 2px solid var(--cor-principal);
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .size-btn:active, .size-btn:hover {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+        }
         .size-btn strong { display: block; font-size: 1.1em; margin-top: 3px; }
 
-        /* NOVO CSS PARA PROMOÇÃO TRIO */
+        /* ESTILO PARA PROMOÇÃO TRIO (MANTIDO) */
         .promo-section {
             display: block; 
             max-width: 650px; 
             margin: 20px auto;
-            padding-top: 5px;
         }
         .promo-card { padding: 15px; }
         .promo-info { padding: 0; }
@@ -130,8 +167,6 @@
         .whatsapp-float[href*="whatsapp"] { background-color: #25D366; }
         .whatsapp-float[href*="whatsapp"]:hover { background-color: #128C7E; }
         #cart-button { background-color: var(--cor-secundaria); } 
-        #cart-button:hover { background-color: #4b3e34; }
-
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
         
         /* EMOJIS FLUTUANTES */
@@ -139,9 +174,8 @@
         .emoji { position: absolute; font-size: 2em; animation: float-up 10s infinite linear; opacity: 0.6; }
         @keyframes float-up { 0% { transform: translateY(100vh); opacity: 0; } 50% { opacity: 0.8; } 100% { transform: translateY(-10vh); opacity: 0; } }
 
-        /* RESPONSIVIDADE */
+        /* RESPONSIVIDADE (MANTIDO) */
         @media (min-width: 768px) {
-            .nav-line { max-width: 800px; margin: 0 auto; }
             .menu-section { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
             .promo-section { display: block; max-width: 650px; }
         }
@@ -152,103 +186,99 @@
     <div class="floating-emojis" id="emoji-container"></div>
 
     <header class="header">
-        <h1>Bolo no Pote da Amanda 🧁</h1>
-        <p>Os sabores mais vendidos, nos tamanhos que você ama! Peça pelo WhatsApp⬇️</p>
+        <h1>A Doce Maninha</h1>
+        <p>Bolo no Pote da Amanda | Cardápio Digital</p>
         
         <div id="status-funcionamento" class="status-badge"></div>
     </header>
 
-    <div class="nav-container">
-        <div class="nav-line">
-            <a href="index.html" class="nav-button nav-main">🍰 Cardápio</a>
-        </div>
-        <div class="nav-line">
-            <a href="sobre.html" class="nav-button">🧡 Sobre Nós</a>
-            <a href="entrega.html" class="nav-button">🛵 Entrega & Frete</a>
-        </div>
+    <div class="filter-menu">
+        <a href="index.html" class="filter-btn active">🍰 Cardápio</a>
+        <a href="sobre.html" class="filter-btn">🧡 Sobre Nós</a>
+        <a href="entrega.html" class="filter-btn">🛵 Entrega & Frete</a>
     </div>
 
     <section class="menu-section">
-        <h2>Cardápio de Sabores Top Vendas ✨</h2>
+        
+        <h2 class="category-title">Bolos Individuais 🧁</h2>
 
-        <div class="menu-item">
+        <div class="menu-item" data-category="mini-bolos">
             <div class="item-image-container" style="background-image: url('brigadeiro.jpeg')"></div>
             <div class="item-info">
                 <h3>BRIGADEIRO CLÁSSICO 🍫</h3>
                 <p>Bolo de chocolate, recheio cremoso de brigadeiro gourmet e cobertura de granulado belga.</p>
                 <div class="size-options">
-                    <span class="size-btn" onclick="processOrder('Brigadeiro Clássico', 'P (200ml)', 12.00)">P (200ml)<br><strong>R$ 12,00</strong></span>
-                    <span class="size-btn" onclick="processOrder('Brigadeiro Clássico', 'M (350ml)', 18.00)">M (350ml)<br><strong>R$ 18,00</strong></span>
-                    <span class="size-btn" onclick="processOrder('Brigadeiro Clássico', 'G (500ml)', 25.00)">G (500ml)<br><strong>R$ 25,00</strong></span>
+                    <span class="size-btn" onclick="processOrder('Brigadeiro Clássico', 'P (200ml)', 12.00)">P (200ml) - R$ 12,00</span>
+                    <span class="size-btn" onclick="processOrder('Brigadeiro Clássico', 'M (350ml)', 18.00)">M (350ml) - R$ 18,00</span>
+                    <span class="size-btn" onclick="processOrder('Brigadeiro Clássico', 'G (500ml)', 25.00)">G (500ml) - R$ 25,00</span>
                 </div>
             </div>
         </div>
 
-        <div class="menu-item">
+        <div class="menu-item" data-category="mini-bolos">
             <div class="item-image-container" style="background-image: url('ninho.jpeg')"></div>
             <div class="item-info">
                 <h3>NINHO COM NUTELLA 🥛🌰</h3>
                 <p>Bolo branco, creme de Leite Ninho especial e generosa camada de Nutella Original.</p>
                 <div class="size-options">
-                    <span class="size-btn" onclick="processOrder('Ninho com Nutella', 'P (200ml)', 14.00)">P (200ml)<br><strong>R$ 14,00</strong></span>
-                    <span class="size-btn" onclick="processOrder('Ninho com Nutella', 'M (350ml)', 21.00)">M (350ml)<br><strong>R$ 21,00</strong></span>
-                    <span class="size-btn" onclick="processOrder('Ninho com Nutella', 'G (500ml)', 29.00)">G (500ml)<br><strong>R$ 29,00</strong></span>
+                    <span class="size-btn" onclick="processOrder('Ninho com Nutella', 'P (200ml)', 14.00)">P (200ml) - R$ 14,00</span>
+                    <span class="size-btn" onclick="processOrder('Ninho com Nutella', 'M (350ml)', 21.00)">M (350ml) - R$ 21,00</span>
+                    <span class="size-btn" onclick="processOrder('Ninho com Nutella', 'G (500ml)', 29.00)">G (500ml) - R$ 29,00</span>
                 </div>
             </div>
         </div>
 
-        <div class="menu-item">
+        <div class="menu-item" data-category="mini-bolos">
             <div class="item-image-container" style="background-image: url('maracujá.jpeg')"></div>
             <div class="item-info">
                 <h3>MARACUJÁ C/ CHOCO BRANCO 🥭</h3>
                 <p>Bolo branco, mousse de maracujá azedinha e raspas de chocolate branco.</p>
                 <div class="size-options">
-                    <span class="size-btn" onclick="processOrder('Maracujá com Choco Branco', 'P (200ml)', 13.00)">P (200ml)<br><strong>R$ 13,00</strong></span>
-                    <span class="size-btn" onclick="processOrder('Maracujá com Choco Branco', 'M (350ml)', 19.00)">M (350ml)<br><strong>R$ 19,00</strong></span>
-                    <span class="size-btn" onclick="processOrder('Maracujá com Choco Branco', 'G (500ml)', 27.00)">G (500ml)<br><strong>R$ 27,00</strong></span>
+                    <span class="size-btn" onclick="processOrder('Maracujá com Choco Branco', 'P (200ml)', 13.00)">P (200ml) - R$ 13,00</span>
+                    <span class="size-btn" onclick="processOrder('Maracujá com Choco Branco', 'M (350ml)', 19.00)">M (350ml) - R$ 19,00</span>
+                    <span class="size-btn" onclick="processOrder('Maracujá com Choco Branco', 'G (500ml)', 27.00)">G (500ml) - R$ 27,00</span>
                 </div>
             </div>
         </div>
 
-        <div class="menu-item">
+        <div class="menu-item" data-category="mini-bolos">
             <div class="item-image-container" style="background-image: url('Red.jpeg')"></div>
             <div class="item-info">
                 <h3>RED VELVET (MORANGO) 🍓</h3>
                 <p>Bolo aveludado Red Velvet, recheio de cream cheese e geleia de morango caseira.</p>
                 <div class="size-options">
-                    <span class="size-btn" onclick="processOrder('Red Velvet e Morango', 'P (200ml)', 14.00)">P (200ml)<br><strong>R$ 14,00</strong></span>
-                    <span class="size-btn" onclick="processOrder('Red Velvet e Morango', 'M (350ml)', 21.00)">M (350ml)<br><strong>R$ 21,00</strong></span>
-                    <span class="size-btn" onclick="processOrder('Red Velvet e Morango', 'G (500ml)', 29.00)">G (500ml)<br><strong>R$ 29,00</strong></span>
+                    <span class="size-btn" onclick="processOrder('Red Velvet e Morango', 'P (200ml)', 14.00)">P (200ml) - R$ 14,00</span>
+                    <span class="size-btn" onclick="processOrder('Red Velvet e Morango', 'M (350ml)', 21.00)">M (350ml) - R$ 21,00</span>
+                    <span class="size-btn" onclick="processOrder('Red Velvet e Morango', 'G (500ml)', 29.00)">G (500ml) - R$ 29,00</span>
                 </div>
             </div>
         </div>
 
-    </section>
+        <h2 class="category-title" style="color: #0097a7;">Promoção Trio (3 Por X) ✨</h2>
 
-    <section class="menu-section promo-section">
-        <h2>✨ Doce Trio da Maninha: 3 Bolos com Desconto!</h2>
-        <p style="text-align: center; margin-bottom: 25px; font-size: 1.1em; color: var(--cor-secundaria);">Escolha o tamanho e receba 3 unidades (você informa os sabores no WhatsApp).</p>
-
-        <div class="menu-item promo-card" style="background-color: #e0f2f1; box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);">
-            <div class="promo-info">
-                <h3 style="color: #0097a7; font-size: 1.5em; text-align: center; margin-bottom: 10px;">PROMOÇÃO TRIO POR TAMANHO</h3>
+        <div class="menu-item promo-card" style="background-color: #e0f2f1; box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);" data-category="promocoes">
+            <div class="item-image-container" style="background-image: url('https://via.placeholder.com/400x250/00bcd4/FFFFFF?text=PROMO+3+POTES')"></div>
+            <div class="item-info">
+                <h3>PROMOÇÃO TRIO POR TAMANHO</h3>
+                <p style="color: #0097a7;">Incrível desconto ao levar 3 potes! Você informa os sabores no WhatsApp.</p>
                 
                 <div class="size-options">
                     <span class="size-btn" style="background-color: #00bcd4; color: white;" onclick="processOrderTrio('Trio (3x) Tamanho P', '3x 200ml', 33.00, 3)">
-                        Trio P<br>DE R$ 36,00<br><strong>POR R$ 33,00</strong>
+                        Trio P - DE R$ 36,00 por **R$ 33,00**
                     </span>
                     
                     <span class="size-btn" style="background-color: #00bcd4; color: white;" onclick="processOrderTrio('Trio (3x) Tamanho M', '3x 350ml', 51.00, 3)">
-                        Trio M<br>DE R$ 54,00<br><strong>POR R$ 51,00</strong>
+                        Trio M - DE R$ 54,00 por **R$ 51,00**
                     </span>
                     
                     <span class="size-btn" style="background-color: #00bcd4; color: white;" onclick="processOrderTrio('Trio (3x) Tamanho G', '3x 500ml', 72.00, 3)">
-                        Trio G<br>DE R$ 75,00<br><strong>POR R$ 72,00</strong>
+                        Trio G - DE R$ 75,00 por **R$ 72,00**
                     </span>
                 </div>
                 <p style="font-size: 0.9em; margin-top: 15px; text-align: center; color: #0097a7;">*Os 3 sabores serão escolhidos no WhatsApp, após o resumo do pedido.</p>
             </div>
         </div>
+
     </section>
 
     <a href="resumo.html" id="cart-button" class="whatsapp-float" style="bottom: 90px;">
@@ -260,7 +290,7 @@
     </a>
 
     <script>
-        // 1. LÓGICA DO CARRINHO
+        // 1. LÓGICA DO CARRINHO (MANTIDA)
         function loadCart() {
             const cartJson = localStorage.getItem('cart');
             return cartJson ? JSON.parse(cartJson) : [];
@@ -279,18 +309,12 @@
             }
 
             const cart = loadCart();
-            
             const newItem = {
-                flavor: flavor,
-                size: size,
-                price: price,
-                quantity: 1
+                flavor: flavor, size: size, price: price, quantity: 1
             };
-
             cart.push(newItem);
             saveCart(cart);
-
-            alert(`1x ${flavor} (${size}) adicionado ao seu carrinho!`);
+            console.log(`1x ${flavor} (${size}) adicionado ao seu carrinho!`); 
         }
 
         function processOrderTrio(flavor, size, price, quantity) {
@@ -301,18 +325,12 @@
             }
 
             const cart = loadCart();
-            
             const newItem = {
-                flavor: flavor, 
-                size: size,     
-                price: price,   
-                quantity: quantity 
+                flavor: flavor, size: size, price: price, quantity: quantity 
             };
-
             cart.push(newItem);
             saveCart(cart);
-
-            alert(`Promoção ${flavor} adicionada ao seu carrinho! Você escolhe os 3 sabores no WhatsApp.`);
+            console.log(`Promoção ${flavor} adicionada ao seu carrinho!`);
         }
 
         function updateCartCount() {
@@ -330,31 +348,33 @@
             }
         }
 
-        // 2. LÓGICA DE FUNCIONAMENTO
+        // 2. LÓGICA DE FUNCIONAMENTO (TEMPORÁRIO - ABERTO PARA TESTE)
         function checkStatus() {
-            const now = new Date();
-            const dayOfWeek = now.getDay();
-            const hour = now.getHours();
-            const minutes = now.getMinutes();
+            const today = new Date();
+            const dayOfWeek = today.getDay();
+            const hour = today.getHours();
+            const minutes = today.getMinutes();
             const currentTime = hour * 100 + minutes; 
             const openTime = 1000;
             const closeTime = 1830;
 
-            const isClosed = (dayOfWeek === 0) || (dayOfWeek !== 0 && (currentTime < openTime || currentTime > closeTime));
+            // 🚨 ALTERAÇÃO TEMPORÁRIA PARA TESTE: FORÇA STATUS ABERTO
+            const isClosed = false; 
+            
             const statusBadge = document.getElementById('status-funcionamento');
             
             if (isClosed) {
-                statusBadge.textContent = "ESTABELECIMENTO FECHADO - Funcionamento: Seg a Sáb, 10:00h às 18:30h";
-                statusBadge.classList.add('status-fechado');
+                statusBadge.textContent = 'ESTABELECIMENTO FECHADO';
                 statusBadge.classList.remove('status-aberto');
+                statusBadge.classList.add('status-fechado');
             } else {
-                statusBadge.textContent = "ESTABELECIMENTO ABERTO! - Peça já o seu bolo!";
-                statusBadge.classList.add('status-aberto');
+                statusBadge.textContent = 'ESTABELECIMENTO ABERTO!';
                 statusBadge.classList.remove('status-fechado');
+                statusBadge.classList.add('status-aberto');
             }
         }
 
-        // 3. LÓGICA PARA EMOJIS FLUTUANTES
+        // 3. LÓGICA PARA EMOJIS FLUTUANTES (MANTIDA)
         const emojiContainer = document.getElementById('emoji-container');
         const emojis = ['🍰', '🧁', '🍩', '🍪', '🍫', '🍬', '🍦'];
         const numEmojis = 15;
@@ -370,22 +390,17 @@
             
             emojiContainer.appendChild(emoji);
 
-            setTimeout(() => {
-                emoji.remove();
-            }, 13000); 
+            setTimeout(() => { emoji.remove(); }, 13000); 
         }
 
         setInterval(() => {
-            if (emojiContainer.children.length < numEmojis) {
-                createEmoji();
-            }
+            if (emojiContainer.children.length < numEmojis) { createEmoji(); }
         }, 1000);
 
-        for (let i = 0; i < numEmojis / 3; i++) {
-            createEmoji();
-        }
+        for (let i = 0; i < numEmojis / 3; i++) { createEmoji(); }
 
-        // INICIALIZAÇÃO
+
+        // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
             checkStatus();
             updateCartCount();
@@ -393,3 +408,5 @@
     </script>
 </body>
 </html>
+
+
